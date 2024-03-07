@@ -15,23 +15,6 @@ class LinkedList(object):
         """
         return self.size == 0
 
-    def insert_at_end(self, value: any) -> None:
-        """
-        Inserts a value at the end of the linked list.
-
-        :param value:any
-        :return: None
-        """
-        node = Node(value)
-        if self.is_empty():
-            self.head.next = node
-        else:
-            curr = self.head.next
-            while curr.next:
-                curr = curr.next
-            curr.next = node
-        self.size += 1
-
     def insert_at_beginning(self, value: any) -> None:
         """
         Inserts a value at the beginning of the linked list.
@@ -75,6 +58,66 @@ class LinkedList(object):
             node.next = curr.next
             curr.next = node
         self.size += 1
+
+    def insert_at_end(self, value: any) -> None:
+        """
+        Inserts a value at the end of the linked list.
+
+        :param value:any
+        :return: None
+        """
+        node = Node(value)
+        if self.is_empty():
+            self.head.next = node
+        else:
+            curr = self.head.next
+            while curr.next:
+                curr = curr.next
+            curr.next = node
+        self.size += 1
+
+    def delete_at_beginning(self) -> None:
+        """
+        Deletes the element at the beginning of a linked list.
+
+        :return: None
+        """
+        if not self.is_empty():
+            self.head.next = self.head.next.next
+            self.size -= 1
+
+    def delete(self, index: int) -> None:
+        """
+        Deletes the element at the given index in a linked list.
+
+        :return: None
+        """
+        if index == 0:
+            self.delete_at_beginning()
+            return
+        elif index >= self.size:
+            self.delete_at_end()
+            return
+
+        if not self.is_empty():
+            curr = self.head.next
+            for i in range(index - 1):
+                curr = curr.next
+            curr.next = None
+            self.size -= 1
+
+    def delete_at_end(self) -> None:
+        """
+        Deletes the element at the end of a linked list.
+
+        :return: None
+        """
+        if not self.is_empty():
+            curr = self.head.next
+            while curr.next.next:
+                curr = curr.next
+            curr.next = None
+            self.size -= 1
 
     def traverse(self) -> None:
         """
