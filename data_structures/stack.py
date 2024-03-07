@@ -10,17 +10,17 @@ class Stack:
     def peek(self) -> any:
         """
         Returns the last element pushed into the stack.
-        :return:
-        any -> The last element added to the stack.
+
+        :return: The last element added to the stack.
         """
         return self.head.next.value
 
     def push(self, value) -> None:
         """
         Pushes a given value into the stack in a traditional LIFO order.
-        :param value: A value to push into the stack.
-        :return:
-        None
+
+        :param value: The value to push into the stack.
+        :return: None
         """
         node = Node(value)
         node.next = self.head.next
@@ -30,8 +30,8 @@ class Stack:
     def pop(self) -> any:
         """
         Pops (deletes) the last element in the stack and returns it.
-        :return:
-        any -> stack value
+
+        :return: The first element to unstack.
         """
         self.head.next = self.head.next.next
         self.size -= 1
@@ -40,16 +40,16 @@ class Stack:
     def is_empty(self) -> bool:
         """
         Checks if the stack is empty.
-        :return:
-        bool
+
+        :return: True if stack is empty, False otherwise.
         """
         return self.size == 0
 
     def clear(self):
         """
         Removes all items from the stack.
-        :return:
-        None
+
+        :return: None
         """
         self.size = 0
         del self.head
@@ -57,8 +57,8 @@ class Stack:
     def traverse(self) -> None:
         """
         Prints the elements of the stack in LIFO traditional order.
-        :return:
-        None
+
+        :return: None
         """
         if self.is_empty():
             print("Stack is empty")

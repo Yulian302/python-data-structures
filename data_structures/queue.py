@@ -7,6 +7,8 @@ class Queue(object):
         """
         Head of queue (front) and tail of queue (back). These pointers are needed for
         easier understanding and implementation.
+
+        :return: Front element of the queue.
         """
         self.head: Node = Node("head")
         self.tail: Node = Node("tail")
@@ -15,16 +17,16 @@ class Queue(object):
     def is_empty(self) -> bool:
         """
         Checks whether the queue is empty.
-        :return:
-        bool
+
+        :return: True if the queue is empty, False otherwise.
         """
         return self.size == 0
 
     def size(self) -> int:
         """
         Returns the size of the queue.
-        :return:
-        int
+
+        :return: The size of the queue.
         """
         return self.size
 
@@ -39,9 +41,9 @@ class Queue(object):
     def enqueue(self, value: any) -> None:
         """
         Adds a new element into the queue using a traditional FIFO approach.
-        :param value:any
-        :return:
-        None
+
+        :param value: A new element to be added to the queue.
+        :return: None
         """
         node = Node(value)
         if self.is_empty():
@@ -55,8 +57,8 @@ class Queue(object):
     def dequeue(self) -> any:
         """
         Removes the first element added into the queue.
-        :return:
-        any
+
+        :return: The first element in the queue.
         """
         first = self.head.next
         self.head.next = self.head.next.next
@@ -71,8 +73,8 @@ class Queue(object):
     def traverse(self) -> None:
         """
         Shows all the values in the queue in its order.
-        :return:
-        None
+
+        :return: None
         """
         if self.is_empty():
             print("Queue is empty")
