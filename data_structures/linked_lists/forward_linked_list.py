@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from data_structures.node import Node
 from .linked_list import LinkedList
 
